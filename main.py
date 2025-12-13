@@ -306,7 +306,7 @@ with st.sidebar.expander("Description Settings", True):
     desc_font_size = st.slider("Font size", 8, 72, 14)
     spacing_barcode_to_description = st.slider("Spacing barcode → desc", -50, 50, 5)
 
-generate_btn = st.sidebar.button("Generate & Compose Label")
+generate_btn = st.sidebar.button("Generate & Compose Label",type ="primary")
 
 with st.sidebar.expander("Label & Page Options"):
     label_mode = st.radio("Mode ukuran label:", ["Custom","Auto-fit"])
