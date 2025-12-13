@@ -40,7 +40,7 @@ def safe_text_width(draw, font, text):
 
 def load_font(size=16):
     try:
-        return ImageFont.truetype("arial.ttf", size)
+        return ImageFont.truetype("DejaVuSans.ttf", size)
     except:
         return ImageFont.load_default()
 
