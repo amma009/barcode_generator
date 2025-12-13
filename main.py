@@ -428,15 +428,31 @@ if generate_pdf_btn and "label_img" in st.session_state:
 
     pdf_bytes = pdf_buf.getvalue()
 
-    # Tombol download PDF
+col_dl, col_print = st.sidebar.columns(2)
+
+with col_dl:
     st.download_button(
-        "Download PDF",
+        "⬇️ Download PDF",
         data=pdf_bytes,
         file_name=f"{code_input}.pdf",
         mime="application/pdf"
     )
 
-
+with col_print:
+    if st.button("🖨️ Print"):
+        b64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
+        st.markdown(
+            f"""
+            <iframe
+                src="data:application/pdf;base64,{b64_pdf}#toolbar=0"
+                width="0"
+                height="0"
+                style="border:none;"
+                onload="this.contentWindow.print();"
+            ></iframe>
+            """,
+            unsafe_allow_html=True
+        )
 
 
 # Tambahkan ini di paling bawah sidebar
