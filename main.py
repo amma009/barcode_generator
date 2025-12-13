@@ -437,20 +437,6 @@ if generate_pdf_btn and "label_img" in st.session_state:
         mime="application/pdf"
     )
 
-st.button("🖨️ Print"):
-        b64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
-        st.markdown(
-            f"""
-            <iframe
-                src="data:application/pdf;base64,{b64_pdf}#toolbar=0"
-                width="0"
-                height="0"
-                style="border:none;"
-                onload="this.contentWindow.print();"
-            ></iframe>
-            """,
-            unsafe_allow_html=True
-        )
 
 
 
