@@ -39,10 +39,8 @@ def safe_text_width(draw, font, text):
         return draw.textsize(text, font=font)[0]
 
 def load_font(size=16):
-    try:
-        return ImageFont.truetype("DejaVuSans.ttf", size)
-    except:
-        return ImageFont.load_default()
+    font_path = "Roboto-Regular.ttf"
+    return ImageFont.truetype(font_path, size)
 
 def pil_to_bytes(img: Image.Image, fmt="PNG"):
     buf = io.BytesIO()
